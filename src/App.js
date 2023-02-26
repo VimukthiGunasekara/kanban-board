@@ -15,23 +15,38 @@ const columnsFromBackend = {
   }
 };
 
+const onDragEnd = (result, columns, setColumns) => {
+  
+};
 
 function App() {
+  const [columns, setColumns] = useState(columnsFromBackend);
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+      <DragDropContext onDragEnd={result => onDragEnd(result, columns, setColumns)}>
+      {Object.entries(columns).map(([columnId, column], index) => {
+          return (
+            <Droppable droppableId={columnId} key={columnId}>
+                  {(provided, snapshot) => {
+                    return (
+                      <div
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                        style={{
+                          background: snapshot.isDraggingOver ? "lightblue" : "lightgrey",
+                          padding: 4,
+                          width: 250,
+                          minHeight: 500
+                        }}
+                      >                      
+                       
+                      </div>
+                    );
+                  }}
+                </Droppable>
+          )
+        })}
+      </DragDropContext>
     </div>
   );
 }
