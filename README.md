@@ -25,7 +25,7 @@ The Kanban-Board app provides a simple and clean interface for a functional and 
   
 ## 🚀 [Submission](#table-of-contents)
 
-Deployed app : https://vimukthigunasekara.github.io/
+Deployed app : https://vimukthigunasekara.github.io/kanban-board/
 </br>
 Github Page : https://github.com/VimukthiGunasekara/kanban-board
 
